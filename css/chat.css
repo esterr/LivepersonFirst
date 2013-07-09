@@ -1,0 +1,70 @@
+.grey_1 {
+	background-color: #4D4D4D;
+}
+.grey_3 {
+	background-color: #323232;
+}
+.grey_2 {
+	background-color: #404041;
+}
+#customer_center{
+	height: 160px;
+	background-color: #363D7E;
+}
+#container_chat
+{
+	margin: 22px;
+	width: 212px;
+}
+.name
+{
+	color:white;
+}
+.hour{
+	float: right;
+}
+.text{
+	color: #686868;	
+}
+.content{
+	margin-top: 15px;
+}
+
+.content:not(:first-child) {
+	border-top: 1px solid #888;
+	padding-top: 10px;
+}
+.outer_chat
+{
+	height: 632px;	
+}
+.send_container{
+	margin-top: 134px;
+}
+.typing{
+	margin-top: 22px;
+	display: block;
+}
+#chatLine{
+	border: none;
+	resize: none;
+	margin-top: 10px;
+}
+.profile_list{
+	height: 632px;
+	margin-left: 0;
+	border-left: 2px solid #888;
+}
+.img_profile{
+	width: 45px;
+	height: 45px;
+}
+.img_profile:hover
+{
+	border:  1px solid #00ADEE;	
+}
+#connection .thumbnails
+{
+	margin-left: -18px;
+	margin-top: 14px;
+}

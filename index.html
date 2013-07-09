@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title></title>
   <meta name="description" content="">
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet" href="css/chat.css" />
 </head>
 
 <body>
@@ -20,7 +24,12 @@
   <input id='chatLine' type='text' value='write your text here...'>
   <button onclick='sendText()'>Send</button>
 </script>
-
+ <script type="text/javascript">
+      $(function(){
+        $('#templates').load('html/templates.html');
+      });
+  </script>
+  <div id="templates"></div>
   <button onclick='visitorDetails.uu()' id="beginChat">begin chat</button>
   <div id='fillDetails'></div>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
