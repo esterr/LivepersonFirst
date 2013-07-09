@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+</head>
+
+<body>
+  <script type='text/template' id="userDetails">
+    <input id='firstName' onchange='visitorDetails.update()' type='text' value='write your name here...'>
+    <button onclick='chatView.render()'>begin chat</button>
+  </script>
+
+<script type="text/template" id='showChat'>
+  <button onclick='checkAvailability()'>Check Availability</button>
+  <button onclick='lpc.requestChat();'>Start Chat</button>
+  <button onclick='lpc.endChat()'>End Chat</button>
+  <div id='chatArea' style='border:1px solid #aaa; width:500px; height:400px; overflow:auto;'></div>
+  <input id='chatLine' type='text' value='write your text here...'>
+  <button onclick='sendText()'>Send</button>
+</script>
+
+  <button onclick='visitorDetails.uu()' id="beginChat">begin chat</button>
+  <div id='fillDetails'></div>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+  <script src="js/underscore-min.js"></script>
+  <script src="js/backbone.js"></script>
+  <script src="js/backbone.marionette.min.js"></script>
+  <script src="js/Chat.js"></script>
+  <script src="js/visitorModel.js"></script>
+  <script src="js/renderChatView.js"></script>
+</body>
+</html>
