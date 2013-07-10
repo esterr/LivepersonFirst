@@ -1,0 +1,46 @@
+<div id="connection">
+	<div class="row">
+	  <div class="span3 grey_3 outer_chat">
+	  	<div id="container_chat">
+	  		<div id="customer_center"></div>
+	  		<div id='chatArea' style=''>
+	  			<div class="content">
+	  				<div>
+	  					<strong class="name">Me</strong>
+	  					<span class="hour text">12:34</span>
+	  				</div>
+	  				<span class="text">Its Me!</span>	  				
+	  			</div>
+	  			<div class="content">
+	  				<div>
+	  					<strong class="name">Sara</strong>
+	  					<span class="hour text">12:35</span>
+	  				</div>
+	  				<span class="text">Its Sara! Its Sara! Its Sara! Its Sara!</span>	  				
+	  			</div>	
+
+	  		</div>
+	  		<div class="send_container">
+	  			<button class="btn btn-large btn-block btn-primary" type="button" onclick='appStart()'>OK thanks!</button>
+	  			<strong class="text typing">Agent is typing...</strong>
+	  			<textarea id='chatLine' class="grey_2" rows="3"></textarea>
+	  		</div>
+	  			
+
+	  	</div>	
+
+	  </div>
+	  <div id="listProfile" class="span1 grey_2 profile_list"></div>
+	</div>
+</div>
+	<script type="text/template" id="profileList">
+		<ul class="thumbnails"></ul>
+    </script>
+
+	<script type="text/template" id="imageProfile">
+	  // <li>
+	    <a href="#">
+	      <img class="img_profile" src=<%= img %> alt=<%= firstName %>_<%= lastName %> >
+	    </a>
+	  // </li>
+  	</script>
