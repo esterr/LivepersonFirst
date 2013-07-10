@@ -45,6 +45,7 @@
 .typing{
 	margin-top: 22px;
 	display: block;
+	display: none;
 }
 #chatLine{
 	border: none;

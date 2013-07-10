@@ -1,3 +1,8 @@
+<script type='text/template' id="userDetails">
+  <input id='firstName' onchange='visitorDetails.update()' type="text" placeholder="write your name here...">
+  <button onclick='begin_chat()' class="btn btn-primary" type="button">begin chat</button>
+</script>
+
 <script type="text/template" id="chat_area">
     <div class="span10 grey_3 outer_chat">
         <div class="row-fluid">
@@ -12,21 +17,18 @@
                 </div>              
         	</div>
      	</div>          
-
 	</div>	
 	<input type="button" onclick="sendText()">send</input>
 </script>
 
-	  <script type="text/template" id="templateView">
-
+<script type="text/template" id="templateView">
     <div class="content">
 		<div>
 		  <strong class="name"><%= by%></strong>
 		  <span class="hour text"><%= new Date().toLocaleTimeString().substr(0, 5)%></span>
 		</div>
 		<span class="text"><%= text%></span>
-    </div>
-   
+    </div>  
 </script>
 
 
