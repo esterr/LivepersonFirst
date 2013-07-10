@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,12 +7,11 @@
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
   <link rel="stylesheet" href="css/chat.css" />
+  <link rel="stylesheet" href="css/lionbars.css" />
 
 </head>
-
 <body>
-
-  <script type='text/template' id="userDetails">
+ <script type='text/template' id="userDetails">
     <input id='firstName' onchange='visitorDetails.update()' type='text' value='write your name here...'>
     <button onclick='chatView.render()'>begin chat</button>
   </script>
@@ -28,8 +26,60 @@
 </script>
   <div id="templates"></div>
   <button onclick='visitorDetails.uu()' id="beginChat">begin chat</button>
-  <div id='fillDetails'></div>
+  
+
+<div id="connection">
+    <div class="row-fluid">
+        <div class="span3 grey_2">
+
+            <div class="row-fluid">
+                
+
+
+
+            <div id='fillDetails'></div>
+           
+
+
+
+
+
+
+
+              <div class="span2 grey_2 profile_list" >      
+
+                    <ul class="thumbnails">
+                      <li>
+                        <a href="#">
+                          <img class="img_profile" src="" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img class="img_profile" src="" alt="">
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img class="img_profile" src="" alt="">
+                        </a>
+                      </li>
+                    </ul>       
+              </div>
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery-lionbars.js"></script>
   <script src="js/underscore-min.js"></script>
   <script src="js/backbone.js"></script>
   <script src="js/backbone.marionette.min.js"></script>

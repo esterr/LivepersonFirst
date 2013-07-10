@@ -33,7 +33,7 @@ visitorDetails = new VisitorDetails({
 //------------------------------------------------------------
 
 ChatView = Backbone.View.extend({
-  myTemplate: $('#connection').html(),
+  myTemplate: $('#chat_area').html(),
   initialize: function(){
     //this.model.on('change', this.render, this);
   },
@@ -44,10 +44,11 @@ ChatView = Backbone.View.extend({
 
   render: function(){
     lpc.requestChat();
-  	var compiledTemplate = _.template($('#connection').html());
+  	var compiledTemplate = _.template($('#chat_area').html());
     var data = this.model.toJSON();
     var Myhtml = compiledTemplate(data);
     this.$el.html(Myhtml);
+    $("#chatArea").lionbars(); 
   }
 });
 

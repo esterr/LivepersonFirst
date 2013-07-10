@@ -1,17 +1,20 @@
-<script type="text/template" id="connection">
-	<div class="row">
-	  <div class="span3 grey_3 outer_chat">
-	  	<div id="container_chat">
-	  		<div id="customer_center"></div>
-	  		<div id='chatArea' style=''></div>
-	  		<div class="send_container">
-	  			<button class="btn btn-large btn-block btn-primary" type="button" onclick='sendText()'>OK thanks!</button>
-	  			<strong class="text typing">Agent is typing...</strong>
-	  			<textarea id='chatLine' class="grey_2" rows="3"></textarea>
-	  		</div>
-	  			
-			<button onclick='sendText()'>Send</button>
-	  	</div>	
+<script type="text/template" id="chat_area">
+    <div class="span10 grey_3 outer_chat">
+        <div class="row-fluid">
+            <div class="span10 offset1 container_chat">
+                <div id="customer_center"></div>
+                <section id='chatArea' class="span12"></section>
+                <div class="clr"></div>
+                <div class="send_container">
+                    <button class="btn btn-large btn-block btn-primary" type="button" onclick='sendText()'>OK thanks!</button>
+                    <div class="text typing">Agent is typing...</div>
+                    <textarea id='chatLine' class="span12 grey_2" rows="3"></textarea>
+                </div>              
+        	</div>
+     	</div>          
+
+	</div>	
+	<input type="button" onclick="sendText()">send</input>
 </script>
 
 	  <script type="text/template" id="templateView">
@@ -25,26 +28,8 @@
     </div>
    
 </script>
-	  <div class="span1 grey_2 profile_list" >
 
-			<ul class="thumbnails">
-			  <li>
-			    <a href="#">
-			      <img class="img_profile" src="img_profile.jpg" alt="">
-			    </a>
-			  </li>
-			  <li>
-			    <a href="#">
-			      <img class="img_profile" src="img_profile.jpg" alt="">
-			    </a>
-			  </li>
-			  <li>
-			    <a href="#">
-			      <img class="img_profile" src="img_profile.jpg" alt="">
-			    </a>
-			  </li>
-			</ul>
 
-	  </div>
-	</div>
-</div>
+
+
+
