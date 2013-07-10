@@ -11,9 +11,9 @@ VisitorDetails = Backbone.View.extend({
 
   render: function(){
   	var compiledTemplate = _.template(this.myTemplate);
-    var data = this.model.toJSON();
-    var Myhtml = compiledTemplate(data);
-    this.$el.html(Myhtml);
+    //var data = this.model.toJSON();
+    //var Myhtml = compiledTemplate(data);
+    this.$el.html(compiledTemplate);
   },
 
   uu: function(){ 	
@@ -26,7 +26,6 @@ VisitorDetails = Backbone.View.extend({
 });
 
 visitorDetails = new VisitorDetails({
-  model: person,
   el: $("#fillDetails")
 });
 
@@ -34,7 +33,7 @@ visitorDetails = new VisitorDetails({
 //------------------------------------------------------------
 
 ChatView = Backbone.View.extend({
-  myTemplate: $('#showChat').html(),
+  myTemplate: $('#connection').html(),
   initialize: function(){
     //this.model.on('change', this.render, this);
   },
@@ -44,7 +43,8 @@ ChatView = Backbone.View.extend({
   },
 
   render: function(){
-  	var compiledTemplate = _.template(this.myTemplate);
+    lpc.requestChat();
+  	var compiledTemplate = _.template($('#connection').html());
     var data = this.model.toJSON();
     var Myhtml = compiledTemplate(data);
     this.$el.html(Myhtml);
@@ -57,3 +57,66 @@ var chatView = new ChatView({
 });
 
 
+//------------------------------------------
+
+  TemplateView = Backbone.View.extend({
+    initialize: function(){   
+      this.model.on('change', this.render, this);
+  },
+
+    close: function(){
+      this.stopListening();
+    },
+
+    render: function(){
+      this.$el = $("#chatArea"); 
+      var compiledTemplate = _.template($('#templateView').html());
+      var data = this.model.toJSON();
+      var Myhtml = compiledTemplate(data);
+      this.$el.append(Myhtml);
+    }
+  });
+
+  var templateView = new TemplateView({
+    model: templateModel
+  });
+var ViewImgProfile = Marionette.ItemView.extend({
+   template: '#templateView'
+ });
+
+
+
+// var pro = new ViewImgProfile({
+//   model:templateModel
+// });
+
+function addNewLine(by,text)
+{
+  templateModel.set({by:by,text:text});
+}
+
+
+//   // initialize: function(){
+
+//     // bind the model change to re-render this view
+//     // this.model.on('change', this.render, this);
+//     // this.render();
+//   //   alert("you in initialize");
+//   // },
+
+//   // render: function(){
+//   //   this.$el.append(html)
+//   // }
+// });
+
+// function SetImgProfile(index){
+
+//   var view = new ViewImgProfile({
+//     model: persons.at(index)
+//   });
+
+//   view.render();
+
+//   $('.profile_list > ul').append(view.el);
+
+// }

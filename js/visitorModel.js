@@ -7,3 +7,11 @@ var Person = Backbone.Model.extend({
 
 var person = new Person();
 
+var TemplateModel = Backbone.Model.extend({
+	defaults:{
+		"by": person.firstName,
+		"text": "ghg"
+	}
+})
+
+var templateModel = new TemplateModel();

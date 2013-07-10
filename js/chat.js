@@ -10,21 +10,17 @@
   function myOnStart(agentId, agentName) {  
      lpc.setVisitorName(person.attributes.firstName);  
   }  
+  
+  function myonAgentTyping(isTyping) {
+     
+       if(isTyping)  
+        alert("agent is currently typing");  
+     
+  } 
 
   function addChatText(by,text){
-    var ca = document.getElementById('chatArea');
-    var p = document.createElement( "div" );
-    if(by!=null){
-      var span = document.createElement( "span" );
-      span.innerHTML = by + ': ';
-      p.appendChild(span);
-    }
-
-    var htmlText = document.createElement ("span");
-    htmlText.innerHTML = text;
-    p.appendChild (htmlText);
-    ca.appendChild(p);
-    ca.scrollTop = 50000;
+    addNewLine(by,text);
+   
   }
 
   var lpChatConfig = {
@@ -39,7 +35,8 @@
     onLine : myOnLine,
     onError : myOnError,
     onAvailability: myOnAvailability,
-    onStart : myOnStart 
+    onStart : myOnStart,
+    onAgentTyping : myonAgentTyping
   };
 
   lpChatConfig.lpAddScript = function(src, ignore) {
@@ -95,7 +92,6 @@
     var textObj = document.getElementById('chatLine');
     if(textObj.value!=''){
       lpc.addLine(textObj.value);
-      console.log(lpc.setVisitorName("kj"));
       addChatText(lpc.getVisitorName(), textObj.value);
       textObj.value='';
     }
