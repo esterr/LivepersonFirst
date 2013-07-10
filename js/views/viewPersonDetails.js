@@ -15,21 +15,21 @@ ProfileList = Backbone.Marionette.CompositeView.extend({
   }
 });
 
-MyApp = new Backbone.Marionette.Application();
+var myApp = new Backbone.Marionette.Application();
  
-MyApp.addRegions({
+myApp.addRegions({
   mainRegion: "#listProfile"
 });
 
-MyApp.addInitializer(function(options){
+myApp.addInitializer(function(options){
   var profileList = new ProfileList({
     collection: options.persons
   });
-  MyApp.mainRegion.show(profileList);
+  myApp.mainRegion.show(profileList);
 });
 
 function appStart(){
-  MyApp.start({persons: personsDisplay});
+  myApp.start({persons: personsDisplay});
 }
 
 
