@@ -1,7 +1,7 @@
 var ViewImgProfile = Marionette.ItemView.extend({
   template: '#imageProfile',
   tagName: 'li',
- //className: 'img_profile'
+  className: 'span10 offset2'
 });
 
 ProfileList = Backbone.Marionette.CompositeView.extend({
