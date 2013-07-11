@@ -12,15 +12,9 @@
   }  
   
   function myonAgentTyping(isTyping) {
-<<<<<<< HEAD
-       if(isTyping)  
-        alert("agent is currently typing");  
-     
-=======
        if(isTyping)$(".typing").show();
-       else $(".typing").hide();  
->>>>>>> a27bcdad16dd27327b1451ed7a026c39b92bc075
-  } 
+        else $(".typing").hide();  
+  }
 
   function addChatText(by,text){
     addNewLine(by,text);
@@ -28,8 +22,8 @@
   }
 
   var lpChatConfig = {
-    apiKey: '74ddbb2a99d64f8dbeb73520c621fe69',
-    lpNumber: 'P53643872',
+    apiKey: 'be6085d31abb4c6ba8659323e9ba4dd9',
+    lpNumber: '45044514',
     jsApiSrcDomain: 'dev.liveperson.net',
 
     onLoad : function() {

@@ -1,13 +1,11 @@
 VisitorDetails = Backbone.View.extend({
-  initialize: function(){
-  },
 
   render: function(){
   	var compiledTemplate = _.template($('#userDetails').html());
     this.$el.html(compiledTemplate);
   },
 
-  uu: function(){ 
+  renderTemplate: function(){ 
   	visitorDetails.render();
   },
 
@@ -23,9 +21,6 @@ visitorDetails = new VisitorDetails({
 //------------------------------------------------------------
 
 ChatView = Backbone.View.extend({
-  // myTemplate: $('#chat_area').html(),
-  initialize: function(){
-  },
 
   close: function(){
     this.stopListening();
@@ -44,6 +39,13 @@ var chatView = new ChatView({
   model: person,
   el: $("#pannel_chat")
 });
+
+
+function renderChatView(){
+  startChat();
+  chatView.render();
+  attachEvents();
+}
 
 
 //------------------------------------------------------------
