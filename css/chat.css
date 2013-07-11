@@ -50,6 +50,7 @@
 	border: none;
 	resize: none;
 	margin-top: 10px;
+	color: #CCCCCC;
 }
 #connection .profile_list{
 /*	height: 817px;
@@ -88,4 +89,22 @@
 
 .thumbnails li{
 	margin-bottom: 10px;
+}
+
+#searchBtn {
+	background-image: url("../img/search.png");
+	background-repeat: no-repeat;
+	float: right;
+	height: 20px;
+	width: 20px;
+}
+
+#closeIcon {
+	background-image: url("../img/close.png");
+	background-repeat: no-repeat;
+	height: 20px;
+	width: 20px;
+}
+#search_container {
+	margin-top: 5px;
 }

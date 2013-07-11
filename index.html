@@ -13,41 +13,25 @@
 <body>
  <script type='text/template' id="userDetails">
     <input id='firstName' onchange='visitorDetails.update()' type='text' value='write your name here...'>
-    <button onclick='chatView.render()'>begin chat</button>
+    <button onclick='renderChatView()'>begin chat</button>
   </script>
 
 <script type="text/template" id='showChat'>
   <button onclick='checkAvailability()'>Check Availability</button>
-  <button onclick='lpc.requestChat();'>Start Chat</button>
+  <button onclick='startChat()'>Start Chat</button>
   <button onclick='lpc.endChat()'>End Chat</button>
   <div id='chatArea' style='border:1px solid #aaa; width:500px; height:400px; overflow:auto;'></div>
   <input id='chatLine' type='text' value='write your text here...'>
   <button onclick='sendText()'>Send</button>
 </script>
   <div id="templates"></div>
-  <button onclick='visitorDetails.uu()' id="beginChat">begin chat</button>
-  
-
+  <button onclick='visitorDetails.renderTemplate()' id="beginChat">begin chat</button>
 <div id="connection">
     <div class="row-fluid">
         <div class="span3 grey_2">
-
             <div class="row-fluid">
-                
-
-
-
             <div id='fillDetails'></div>
-           
-
-
-
-
-
-
-
               <div class="span2 grey_2 profile_list" >      
-
                     <ul class="thumbnails">
                       <li>
                         <a href="#">
@@ -66,13 +50,7 @@
                       </li>
                     </ul>       
               </div>
-
-
-
-
             </div>
-
-
         </div>
     </div>
 </div>
@@ -86,6 +64,7 @@
   <script src="js/Chat.js"></script>
   <script src="js/visitorModel.js"></script>
   <script src="js/renderChatView.js"></script>
+  <script src="js/searchAndHighlight.js"></script>
   <script type="text/javascript">
       $(function(){
         $('#templates').load('html/templates.html');

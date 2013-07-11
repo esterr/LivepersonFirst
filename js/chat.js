@@ -12,7 +12,6 @@
   }  
   
   function myonAgentTyping(isTyping) {
-     
        if(isTyping)  
         alert("agent is currently typing");  
      
@@ -98,4 +97,36 @@
     return true;
   }
 
+function startChat(){
+    lpc.requestChat();
+}
 
+function attachEvents(){
+  $('#chatLine').bind('keypress', function (event) {
+      if (event.keyCode == 13)
+      {
+        sendText(); 
+        return false;
+      } 
+  });
+}
+
+function search(){
+  var body = document.getElementById("chatArea");
+  var text = document.getElementById("searchText").value;
+  highlightSearchTerms(body, text, true, true, "", "");
+}
+
+function showSearchInput(){
+  document.getElementById("searchText").style="display:block";
+  document.getElementById("searchText").focus();
+  document.getElementById("closeIcon").style="display:block";
+}
+
+
+function closeIcon(){
+  removeHightlight(document.getElementById("chatArea"));
+  document.getElementById("searchText").value="";
+  document.getElementById("searchText").style="display:none";
+  document.getElementById("closeIcon").style="display:none";
+}

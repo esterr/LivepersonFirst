@@ -1,9 +1,6 @@
 
 VisitorDetails = Backbone.View.extend({
   myTemplate: $('#userDetails').html(),
-  initialize: function(){
-    // this.render();
-  },
 
   close: function(){
     this.stopListening();
@@ -16,7 +13,7 @@ VisitorDetails = Backbone.View.extend({
     this.$el.html(compiledTemplate);
   },
 
-  uu: function(){ 	
+  renderTemplate: function(){ 	
   	visitorDetails.render();
   },
 
@@ -43,12 +40,11 @@ ChatView = Backbone.View.extend({
   },
 
   render: function(){
-    lpc.requestChat();
   	var compiledTemplate = _.template($('#chat_area').html());
     var data = this.model.toJSON();
     var Myhtml = compiledTemplate(data);
     this.$el.html(Myhtml);
-    $("#chatArea").lionbars(); 
+    $("#chatArea").lionbars();  
   }
 });
 
@@ -57,6 +53,12 @@ var chatView = new ChatView({
   el: $("#fillDetails")
 });
 
+
+function renderChatView(){
+  startChat();
+  chatView.render();
+  attachEvents();
+}
 
 //------------------------------------------
 
@@ -81,43 +83,8 @@ var chatView = new ChatView({
   var templateView = new TemplateView({
     model: templateModel
   });
-var ViewImgProfile = Marionette.ItemView.extend({
-   template: '#templateView'
- });
-
-
-
-// var pro = new ViewImgProfile({
-//   model:templateModel
-// });
 
 function addNewLine(by,text)
 {
   templateModel.set({by:by,text:text});
 }
-
-
-//   // initialize: function(){
-
-//     // bind the model change to re-render this view
-//     // this.model.on('change', this.render, this);
-//     // this.render();
-//   //   alert("you in initialize");
-//   // },
-
-//   // render: function(){
-//   //   this.$el.append(html)
-//   // }
-// });
-
-// function SetImgProfile(index){
-
-//   var view = new ViewImgProfile({
-//     model: persons.at(index)
-//   });
-
-//   view.render();
-
-//   $('.profile_list > ul').append(view.el);
-
-// }
