@@ -1,74 +1,45 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-  <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-  <link rel="stylesheet" href="css/chat.css" />
-  <link rel="stylesheet" href="css/lionbars.css" />
-
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="description" content="">
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="css/chat.css" />
+	<link rel="stylesheet" href="css/lionbars.css" />
 </head>
+
 <body>
- <script type='text/template' id="userDetails">
-    <input id='firstName' onchange='visitorDetails.update()' type='text' value='write your name here...'>
-    <button onclick='renderChatView()'>begin chat</button>
-  </script>
+	<div id="templates"></div>
+	<button onclick='visitorDetails.renderTemplate()' id="beginChat" class="btn btn-primary" type="button">Click to chat...</button>
+	<div id='fillDetails'></div>
+	<div id="connection">
+		<div class="row-fluid">
+			<div class="span3 grey_2 container_connection">
+				<div class="row-fluid">
+					<div id='pannel_chat'></div>
 
-<script type="text/template" id='showChat'>
-  <button onclick='checkAvailability()'>Check Availability</button>
-  <button onclick='startChat()'>Start Chat</button>
-  <button onclick='lpc.endChat()'>End Chat</button>
-  <div id='chatArea' style='border:1px solid #aaa; width:500px; height:400px; overflow:auto;'></div>
-  <input id='chatLine' type='text' value='write your text here...'>
-  <button onclick='sendText()'>Send</button>
-</script>
-  <div id="templates"></div>
-  <button onclick='visitorDetails.renderTemplate()' id="beginChat">begin chat</button>
-<div id="connection">
-    <div class="row-fluid">
-        <div class="span3 grey_2">
-            <div class="row-fluid">
-            <div id='fillDetails'></div>
-              <div class="span2 grey_2 profile_list" >      
-                    <ul class="thumbnails">
-                      <li>
-                        <a href="#">
-                          <img class="img_profile" src="" alt="">
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <img class="img_profile" src="" alt="">
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <img class="img_profile" src="" alt="">
-                        </a>
-                      </li>
-                    </ul>       
-              </div>
-            </div>
-        </div>
-    </div>
-</div>
+					<div id="listProfile" class="span2 grey_2 profile_list">          
+	                </div>
+
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
 
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
-  <script type="text/javascript" src="js/jquery-lionbars.js"></script>
-  <script src="js/underscore-min.js"></script>
-  <script src="js/backbone.js"></script>
-  <script src="js/backbone.marionette.min.js"></script>
-  <script src="js/Chat.js"></script>
-  <script src="js/visitorModel.js"></script>
-  <script src="js/renderChatView.js"></script>
-  <script src="js/searchAndHighlight.js"></script>
-  <script type="text/javascript">
-      $(function(){
-        $('#templates').load('html/templates.html');
-      });
-  </script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-lionbars.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/backbone.js"></script>
+<script src="js/backbone.marionette.min.js"></script>
+<script src="js/Chat.js"></script>
+<script src="js/models/visitorModel.js"></script>
+<script src="js/views/renderChatView.js"></script>
+<script type="text/javascript" src="js/models/person.js"></script>
+<script type="text/javascript" src="js/views/viewPersonDetails.js"></script>
+<script src="js/application.js"></script>
+<script src="js/searchAndHighlight.js"></script>
 </body>
 </html>
