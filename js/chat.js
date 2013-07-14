@@ -61,31 +61,6 @@ Chat.prototype = {
 
 }
 
-function myOnLine ( line ) {
-  myChat.addChatText(line.by, line.text);
-}
-
-function myOnError(errObj){
-  alert('Error occured. ' + errObj.text);
-}
-
-function myOnStart(agentId, agentName) {  
-  lpc.setVisitorName(person.attributes.firstName);  
-}  
-
-function myonAgentTyping(isTyping) {
-  if(isTyping)$(".typing").show();
-  else $(".typing").hide();  
-}
-
-function myOnAvailability(availObj){
-  if( availObj.availability == true ){
-    alert( 'we can start a chat' );
-  } else {
-    alert( 'account is offline' );
-  }
-}
-
 var lpChatConfig = {
   apiKey: 'bde0c8f2ea324bf5bc6dd7a4e5da1063',
   lpNumber: '33590391',
@@ -96,11 +71,24 @@ var lpChatConfig = {
     window.myChat = new Chat();
   },
 
-  onLine : myOnLine,
-  onError : myOnError,
-  onAvailability: myOnAvailability,
-  onStart : myOnStart,
-  onAgentTyping : myonAgentTyping
+  onLine : function(line) { myChat.addChatText(line.by, line.text); },
+  
+  onError : function(errObj){ alert('Error occured. ' + errObj.text); },
+
+  onAvailability: function(availObj){
+    if( availObj.availability == true ){
+      alert( 'we can start a chat' );
+    } else {
+      alert( 'account is offline' );
+    }
+  },
+
+  onStart : function(agentId, agentName) { lpc.setVisitorName(person.attributes.firstName); },
+
+  onAgentTyping : function(isTyping) {
+    if(isTyping)$(".typing").show();
+    else $(".typing").hide();  
+  }
 };
 
 lpChatConfig.lpAddScript = function(src, ignore) {
