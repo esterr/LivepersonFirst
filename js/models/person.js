@@ -4,7 +4,7 @@ Person = Backbone.Model.extend({
     firstName: 'you',
     lastName: 'you',
     email: 'you_you@example.com',
-    img: 'images/Desert.jpg',
+    img: 'img/user.png',
     hobby: 'someThing'
   }
 });
@@ -48,11 +48,11 @@ PersonsDisplay = Backbone.Collection.extend({
 
 var personsDisplay = new PersonsDisplay();
 
-persons.add(persons.length, 'Derick', 'Bailey', 'derickbailey@example.com', 'images/Desert.jpg', 'reading voltage books');
+persons.add(persons.length, 'Derick', 'Bailey', 'derickbailey@example.com', 'img/user.png', 'reading voltage books');
 
-persons.add(persons.length, 'Jone','kkk','jonekkk@example.com','images/Hydrangeas.jpg','sport: swim, run, rollers');
+persons.add(persons.length, 'Jone','kkk','jonekkk@example.com','img/user.png','sport: swim, run, rollers');
 
-persons.add(persons.length, 'Ronen','rr','ronenrr@example.com','images/Lighthouse.jpg','Develop computer software and games.');
+persons.add(persons.length, 'Ronen','rr','ronenrr@example.com','img/user.png','Develop computer software and games.');
 
 personsDisplay.display("ol", persons);
 

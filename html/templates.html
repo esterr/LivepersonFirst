@@ -11,13 +11,13 @@
                 <section id='chatArea' class="span12"></section>
                 <div class="clr"></div>
                 <div class="send_container">
-                    <button class="btn btn-large btn-block btn-primary" type="button" onclick='sendText()'>OK thanks!</button>
+                    <button class="btn btn-large btn-block btn-primary" type="button" onclick='lpc.endChat()'>OK thanks!</button>
                     <div class="text typing">Agent is typing...</div>
                     <textarea id='chatLine' class="span12 grey_2" rows="3"></textarea>
                     <div id="search_container">
-	                    <div id='searchBtn' class='span1' onclick='showSearchInput()'></div>
-	                    <div id='closeIcon' class='span1' onclick='closeIcon()' style='display: none;'></div>
-	                    <input id="searchText" type"text" class='span9' oninput='search()' style='display:none;'/>
+	                    <div id='searchBtn' class='span1'></div>
+	                    <div id='closeIcon' class='span1' style='display: none;'></div>
+	                    <input id="searchText" type"text" class='span9' style='display:none;'/>
                     </div>
                 </div>              
         	</div>

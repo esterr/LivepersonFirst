@@ -7,5 +7,5 @@ function begin_chat(){
 	chatView.render(); //render chat panel
 	appStart(); //create profiles region
   	lpc.requestChat();
-  	attachEvents(); //attach events to elements
+  	myChat.attachEvents(); //attach events to elements
 }

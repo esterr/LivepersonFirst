@@ -41,7 +41,7 @@ var chatView = new ChatView({
 });
 
 
-function renderChatView(){
+function renderChatView(){ 
   startChat();
   chatView.render();
   attachEvents();
@@ -80,7 +80,7 @@ var ViewImgProfile = Marionette.ItemView.extend({
 
 //------------------------------------------------------------
 
-function addNewLine(by,text)
-{
-  templateModel.set({by:by,text:text});
-}
+// function addNewLine(by, text) 
+// {
+//   templateModel.set({by:by, text:text});
+// }
