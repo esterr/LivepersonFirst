@@ -1,13 +1,12 @@
-var lpc, myChat;
+var myChat;
 
-function Chat() {}
+function Chat() {
+  var lpc = {};
+  this.checkAvailability = function(){ this.lpc.chatAvailability(); };
 
-Chat.prototype = {
-  checkAvailability : function(){ lpc.chatAvailability(); },
+  this.startChat = function(){ this.lpc.requestChat(); };
 
-  startChat : function(){ lpc.requestChat(); },
-
-  attachEvents : function() {
+  this.attachEvents = function() {
     var _this = this;
 
     $('#chatLine').bind('keypress', function (event) {
@@ -23,42 +22,41 @@ Chat.prototype = {
     $('#closeIcon').bind('click', function(){ _this.closeIcon(); });
 
     $("#searchText").bind('input', function(){ _this.search(); });
-  },
+  };
 
-  search : function(){
+  this.search = function(){
     var body = document.getElementById("chatArea");
     var text = document.getElementById("searchText").value;
     highlightSearchTerms(body, text, true, true, "", "");
-  },
-  showSearchInput : function(){
+  };
+  this.showSearchInput = function(){
     document.getElementById("searchText").style = "display:block";
     document.getElementById("searchText").focus();
     document.getElementById("closeIcon").style = "display:block";
-  },
-  closeIcon : function(){
+  };
+  this.closeIcon = function(){
     removeHightlight(document.getElementById("chatArea"));
     document.getElementById("searchText").value = "";
     document.getElementById("searchText").style = "display:none";
     document.getElementById("closeIcon").style = "display:none";
-  },
+  };
 
-  addChatText : function(by, text) {
+  this.addChatText = function(by, text) {
     this.addNewLine(by, text);
-  },
-  sendText : function() {
+  };
+  this.sendText = function() {
     var textObj = document.getElementById('chatLine');
     if(textObj.value!=''){
-      lpc.addLine(textObj.value);
-      this.addChatText(lpc.getVisitorName(), textObj.value);
+      this.lpc.addLine(textObj.value);
+      this.addChatText(this.lpc.getVisitorName(), textObj.value);
       textObj.value='';
     }
     return true;
-  },
-  addNewLine : function(by, text) 
+  };
+  this.addNewLine = function(by, text) 
   {
     templateModel.set({by:by, text:text});
-  }
-
+  };
 }
 
 var lpChatConfig = {
@@ -67,8 +65,8 @@ var lpChatConfig = {
   jsApiSrcDomain: 'dev.liveperson.net',
 
   onLoad : function() {
-    window.lpc= new lpChat();
     window.myChat = new Chat();
+    myChat.lpc= new lpChat();
   },
 
   onLine : function(line) { myChat.addChatText(line.by, line.text); },
@@ -83,7 +81,7 @@ var lpChatConfig = {
     }
   },
 
-  onStart : function(agentId, agentName) { lpc.setVisitorName(person.attributes.firstName); },
+  onStart : function(agentId, agentName) { myChat.lpc.setVisitorName(person.attributes.firstName); },
 
   onAgentTyping : function(isTyping) {
     if(isTyping)$(".typing").show();

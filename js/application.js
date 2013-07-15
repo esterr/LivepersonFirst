@@ -6,6 +6,6 @@ function begin_chat(){
 	$("#fillDetails").hide();
 	chatView.render(); //render chat panel
 	appStart(); //create profiles region
-  	lpc.requestChat();
+  	myChat.lpc.requestChat();
   	myChat.attachEvents(); //attach events to elements
 }
