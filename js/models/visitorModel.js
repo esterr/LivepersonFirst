@@ -1,17 +1,19 @@
+define(["backbone"],function(Backbone){
+	var Person = Backbone.Model.extend({
+	  defaults: {
+	    "firstName": "Jeremy"
+	  }
+	});
 
-var Person = Backbone.Model.extend({
-  defaults: {
-    "firstName": "Jeremy"
-  }
-});
+	var ContentChat = Backbone.Model.extend({
+		defaults:{
+			"by": "",
+			"text": "ghg"
+		}
+	})
 
-var person = new Person();
-
-var TemplateModel = Backbone.Model.extend({
-	defaults:{
-		"by": person.firstName,
-		"text": "ghg"
+	return {
+		Person: Person,
+		ContentChat: ContentChat
 	}
-})
-
-var templateModel = new TemplateModel();
+});

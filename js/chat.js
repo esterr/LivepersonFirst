@@ -1,3 +1,5 @@
+ define(["jquery"], function($){
+
  var lpc;
  function myOnLine ( line ) {
     addChatText(line.by, line.text);
@@ -129,3 +131,6 @@ function closeIcon(){
   document.getElementById("searchText").style="display:none";
   document.getElementById("closeIcon").style="display:none";
 }
+
+return lpc;
+});
