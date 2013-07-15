@@ -3,10 +3,10 @@ define(['jquery',
   'backbone',
   // 'wreqr',
   // 'babysitter',
-  'marionette',
+  // 'marionette',
   'models/person',
   'text!templates/profileList.html',
-  'text!templates/imageProfile.html'],function($, _, Backbone, Marionette, PersonModel, ProfileList, ImageProfile){
+  'text!templates/imageProfile.html'],function($, _, Backbone, PersonModel, ProfileList, ImageProfile){
 
     var persons = new PersonModel.Persons();
     persons.add(persons.length, 'Derick', 'Bailey', 'derickbailey@example.com', 'images/Desert.jpg', 'reading voltage books');

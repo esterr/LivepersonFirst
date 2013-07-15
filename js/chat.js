@@ -1,3 +1,4 @@
+define(['jquery'], function($){
 var lpc, myChat;
 
 function Chat() {}
@@ -126,4 +127,6 @@ if (window.attachEvent) {
 } else {
   window.addEventListener('load', lpChatConfig.lpAddScript, false);
 }
+ 
+ return lpc;
 });

@@ -1,8 +1,9 @@
 define([
   'jquery',
   'views/renderChatView',
-  'views/viewPersonDetails'
-], function($, ChatViews) {
+  'chat'
+  // 'views/viewPersonDetails'
+], function($, ChatViews,lpc) {
   
   
 	var initialize = function(){
@@ -17,8 +18,8 @@ define([
 	$("#aaa").live('click',function(){
 	   $("#fillDetails").hide();
 		chatView.render(); //render chat panel
-		appStart(); //create profiles region
-	  	//lpc.requestChat();
+		// appStart(); //create profiles region
+	  	lpc.requestChat();
 	  	//attachEvents(); //attach events to elements
 	});
 
