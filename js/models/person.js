@@ -30,25 +30,23 @@ define(['jquery',
     }
   });
 
-  // var persons = new Persons();
+PersonsDisplay = Backbone.Collection.extend({
+  Model: Person,
 
-  PersonsDisplay = Backbone.Collection.extend({
-    Model: Person,
-
-    display: function(text, personsList){
-      var disPersons = new Array();
-      var pattern = new RegExp(text, "i");
-      personsList.each(function(person){
-        if(pattern.test(person.get("hobby")))
-          disPersons.push(person);
-      });
-      this.add(disPersons);
-      // $.each(personsList, function(person){
-      //   if(person.hobby.indexOf(text) != -1)
-      //       this.add(person); 
-      // });
-    }
-  });
+  display: function(text, personsList){
+    var disPersons = new Array();
+    var pattern = new RegExp(text, "i");
+    personsList.each(function(person){
+      if(pattern.test(person.get("hobby")))
+        disPersons.push(person);
+    });
+    this.add(disPersons);
+    // $.each(personsList, function(person){
+    //   if(person.hobby.indexOf(text) != -1)
+    //       this.add(person); 
+    // });
+  }
+});
 
   // var personsDisplay = new PersonsDisplay();
 

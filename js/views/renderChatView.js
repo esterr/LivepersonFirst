@@ -87,6 +87,11 @@ ContentView = Backbone.View.extend({
 
 
 // //------------------------------------------------------------
+// function renderChatView(){ 
+//   startChat();
+//   chatView.render();
+//   attachEvents();
+// }
 
 
 // //------------------------------------------------------------
@@ -120,6 +125,7 @@ ContentView = Backbone.View.extend({
 //  });
 
 // //------------------------------------------------------------
+
 
 // function addNewLine(by,text)
 // {
