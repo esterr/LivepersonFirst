@@ -48,16 +48,6 @@ PersonsDisplay = Backbone.Collection.extend({
   }
 });
 
-  // var personsDisplay = new PersonsDisplay();
-
-  // persons.add(persons.length, 'Derick', 'Bailey', 'derickbailey@example.com', 'images/Desert.jpg', 'reading voltage books');
-
-  // persons.add(persons.length, 'Jone','kkk','jonekkk@example.com','images/Hydrangeas.jpg','sport: swim, run, rollers');
-
-  // persons.add(persons.length, 'Ronen','rr','ronenrr@example.com','images/Lighthouse.jpg','Develop computer software and games.');
-
-  // personsDisplay.display("ol", persons);
-
   return {
     Person: Person,
     Persons: Persons,

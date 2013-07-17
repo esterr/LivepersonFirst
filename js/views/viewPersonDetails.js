@@ -22,8 +22,6 @@ define(['jquery',
     });
 
     ProfileList = Marionette.CompositeView.extend({
-      // tagName: "div",
-      // className: "span1 grey_2 profile_list",
       template: ProfileList,
       itemView: ViewImgProfile,
      

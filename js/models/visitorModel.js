@@ -11,9 +11,10 @@ define(["backbone"],function(Backbone){
 			"text": "ghg"
 		}
 	})
-
+  var person = new Person();
+  var contentChat = new ContentChat(); 
 	return {
-		Person: Person,
-		ContentChat: ContentChat
+		person: person,
+		contentChat: contentChat
 	}
 });

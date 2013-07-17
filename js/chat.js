@@ -1,74 +1,75 @@
+define(['jquery', 'models/visitorModel'], function($, VisitorModel){
 
-define(['jquery'], function($){
-  
-var myChat;
-function Chat() {
-  var lpc = {};
-  this.checkAvailability = function(){ this.lpc.chatAvailability(); };
+  function Chat() {
 
-  this.startChat = function(){ this.lpc.requestChat(); };
+    var lpc = {};
 
-  this.attachEvents = function() {
-    var _this = this;
+    this.checkAvailability = function(){ this.lpc.chatAvailability(); };
 
-    $('#chatLine').bind('keypress', function (event) {
-      if (event.keyCode == 13)
-      {
-        _this.sendText(); 
-        return false;
-      } 
-    });
+    this.startChat = function(){ this.lpc.requestChat(); };
 
-    $('#searchBtn').bind('click', function(){ _this.showSearchInput(); });
+    this.attachEvents = function() {
+      var _this = this;
 
-    $('#closeIcon').bind('click', function(){ _this.closeIcon(); });
+      $('#chatLine').bind('keypress', function (event) {
+        if (event.keyCode == 13)
+        {
+          _this.sendText(); 
+          return false;
+        } 
+      });
 
-    $("#searchText").bind('input', function(){ _this.search(); });
-  };
+      $('#searchBtn').bind('click', function(){ _this.showSearchInput(); });
 
-  this.search = function(){
-    var body = document.getElementById("chatArea");
-    var text = document.getElementById("searchText").value;
-    highlightSearchTerms(body, text, true, true, "", "");
-  };
-  this.showSearchInput = function(){
-    document.getElementById("searchText").style = "display:block";
-    document.getElementById("searchText").focus();
-    document.getElementById("closeIcon").style = "display:block";
-  };
-  this.closeIcon = function(){
-    removeHightlight(document.getElementById("chatArea"));
-    document.getElementById("searchText").value = "";
-    document.getElementById("searchText").style = "display:none";
-    document.getElementById("closeIcon").style = "display:none";
-  };
+      $('#closeIcon').bind('click', function(){ _this.closeIcon(); });
 
-  this.addChatText = function(by, text) {
-    this.addNewLine(by, text);
-  };
-  this.sendText = function() {
-    var textObj = document.getElementById('chatLine');
-    if(textObj.value!=''){
-      this.lpc.addLine(textObj.value);
-      this.addChatText(this.lpc.getVisitorName(), textObj.value);
-      textObj.value='';
-    }
-    return true;
-  };
-  this.addNewLine = function(by, text) 
-  {
-    templateModel.set({by:by, text:text});
-  };
-}
+      $("#searchText").bind('input', function(){ _this.search(); });
+    };
 
-var lpChatConfig = {
-  apiKey: 'bde0c8f2ea324bf5bc6dd7a4e5da1063',
-  lpNumber: '33590391',
+    this.search = function(){
+      var body = document.getElementById("chatArea");
+      var text = document.getElementById("searchText").value;
+      highlightSearchTerms(body, text, true, true, "", "");
+    };
+    this.showSearchInput = function(){
+      document.getElementById("searchText").style = "display:block";
+      document.getElementById("searchText").focus();
+      document.getElementById("closeIcon").style = "display:block";
+    };
+    this.closeIcon = function(){
+      removeHightlight(document.getElementById("chatArea"));
+      document.getElementById("searchText").value = "";
+      document.getElementById("searchText").style = "display:none";
+      document.getElementById("closeIcon").style = "display:none";
+    };
+
+    this.addChatText = function(by, text) {
+      this.addNewLine(by, text);
+    };
+    this.sendText = function() {
+      var textObj = document.getElementById('chatLine');
+      if(textObj.value!=''){
+        this.lpc.addLine(textObj.value);
+        this.addChatText(this.lpc.getVisitorName(), textObj.value);
+        textObj.value='';
+      }
+      return true;
+    };
+    this.addNewLine = function(by, text) 
+    {
+      VisitorModel.contentChat.set({by:by, text:text});
+    };
+  }
+
+window.lpChatConfig = {
+
+  apiKey: '5222c07ce31a46c6b0ca3ff6109d8858',
+  lpNumber: '53545211',
   jsApiSrcDomain: 'dev.liveperson.net',
 
   onLoad : function() {
     window.myChat = new Chat();
-    myChat.lpc= new lpChat();
+    window.myChat.lpc= new lpChat();
   },
 
   onLine : function(line) { myChat.addChatText(line.by, line.text); },
@@ -83,14 +84,13 @@ var lpChatConfig = {
     }
   },
 
-  onStart : function(agentId, agentName) { myChat.lpc.setVisitorName(person.attributes.firstName); },
+  onStart : function(agentId, agentName) { myChat.lpc.setVisitorName(VisitorModel.person.attributes.firstName); },
 
   onAgentTyping : function(isTyping) {
     if(isTyping)$(".typing").show();
     else $(".typing").hide();  
   }
 };
-
 lpChatConfig.lpAddScript = function(src, ignore) {
   var c = lpChatConfig;
   if(typeof(c.lpProtocol)=='undefined'){
@@ -126,6 +126,6 @@ if (window.attachEvent) {
 } else {
   window.addEventListener('load', lpChatConfig.lpAddScript, false);
 }
- 
- return lpc;
+
+ return Chat;
 });

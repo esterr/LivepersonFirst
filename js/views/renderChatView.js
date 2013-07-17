@@ -8,17 +8,12 @@ define([
   'text!templates/chatPanel.html',
   'text!templates/chatContent.html'
 ], 
-
 function($, _, Backbone, lionbars, VisitorDetailsModel, userDetailsTemplate, chatPanelTemplate, chatContent){
-
-  var person = new VisitorDetailsModel.Person();
-  var contentChat = new VisitorDetailsModel.ContentChat(); 
 
   VisitorDetails = Backbone.View.extend({
     el: $("#fillDetails"),
 
     render: function(){
-      // var compiledTemplate = _.template($('#userDetails').html());
       this.$el.html(userDetailsTemplate);
     },
 
@@ -27,13 +22,13 @@ function($, _, Backbone, lionbars, VisitorDetailsModel, userDetailsTemplate, cha
     },
 
     update: function(){
-      person.set({ firstName: $("#firstName").val()});
+      VisitorDetailsModel.person.set({ firstName: $("#firstName").val()});
     }
   });
 
   ChatView = Backbone.View.extend({
    el: $("#pannel_chat"),
-   model: person,
+   model: VisitorDetailsModel.person,
 
     render: function(){
      var compiledTemplate = _.template(chatPanelTemplate);
@@ -44,20 +39,9 @@ function($, _, Backbone, lionbars, VisitorDetailsModel, userDetailsTemplate, cha
     }
   });
 
-  // var chatView = new ChatView({
-  //   model: person,
-  //   // el: $("#pannel_chat")
-  // });
-
-
-  // function renderChatView(){
-  //   startChat();
-  //   chatView.render();
-  //   attachEvents();
-  // }
 ContentView = Backbone.View.extend({
-  model: contentChat,
-  el: $("#chatArea"),
+  model: VisitorDetailsModel.contentChat,
+  
   initialize: function(){   
     this.model.on('change', this.render, this);
 },
@@ -65,7 +49,7 @@ ContentView = Backbone.View.extend({
     this.stopListening();
   },
   render: function(){
-    //this.$el = $("#chatArea"); 
+    this.$el = $("#chatArea"); 
     var compiledTemplate = _.template(chatContent);
     var data = this.model.toJSON();
     var Myhtml = compiledTemplate(data);
@@ -83,51 +67,3 @@ ContentView = Backbone.View.extend({
   }
   
 });
-
-
-
-// //------------------------------------------------------------
-// function renderChatView(){ 
-//   startChat();
-//   chatView.render();
-//   attachEvents();
-// }
-
-
-// //------------------------------------------------------------
-
-// TemplateView = Backbone.View.extend({
-//   initialize: function(){   
-//     this.model.on('change', this.render, this);
-// },
-//   close: function(){
-//     this.stopListening();
-//   },
-//   render: function(){
-//     this.$el = $("#chatArea"); 
-//     var compiledTemplate = _.template($('#templateView').html());
-//     var data = this.model.toJSON();
-//     var Myhtml = compiledTemplate(data);
-//     this.$el.append(Myhtml);
-//   }
-// });
-
-// //------------------------------------------------------------
-
-// var templateView = new TemplateView({
-//   model: templateModel
-// });
-
-// //------------------------------------------------------------
-
-// var ViewImgProfile = Marionette.ItemView.extend({
-//    template: '#templateView'
-//  });
-
-// //------------------------------------------------------------
-
-
-// function addNewLine(by,text)
-// {
-//   templateModel.set({by:by,text:text});
-// }
